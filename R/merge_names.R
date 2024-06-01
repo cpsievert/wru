@@ -91,9 +91,9 @@ merge_names <- function(voter.file, namesToUse, census.surname, table.surnames =
   first_c <- readRDS(paste0(path, "/wru-data-first_c.rds"))
   mid_c <- readRDS(paste0(path, "/wru-data-mid_c.rds"))
   if(census.surname){
-    last_c <- readRDS(paste0(path, "/wru-data-census_last_c.rds"))
+    last_c <- getOption("wru.census_last_c", readRDS(paste0(path, "/wru-data-census_last_c.rds")))
   } else {
-    last_c <- readRDS(paste0(path, "/wru-data-last_c.rds"))
+    last_c <- getOption("wru.last_c", readRDS(paste0(path, "/wru-data-last_c.rds")))
   }
   
   p_eth <- c("c_whi", "c_bla", "c_his", "c_asi", "c_oth")
